@@ -1,0 +1,13 @@
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\bin\Debug\PowerPointVstoAdd-In.dll
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\bin\Debug\PowerPointVstoAdd-In.pdb
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\bin\Debug\PowerPointVstoAdd-In.dll.manifest
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\bin\Debug\PowerPointVstoAdd-In.vsto
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd-In.csproj.AssemblyReference.cache
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd_In.PresentationInfoRibbon.resources
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd_In.Properties.Resources.resources
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd-In.csproj.GenerateResource.cache
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd-In.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPoi.99A16E12.Up2Date
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd-In.dll
+C:\Users\lenovo\source\repos\PowerPointVstoAdd-In\PowerPointVstoAdd-In\obj\Debug\PowerPointVstoAdd-In.pdb
