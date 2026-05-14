@@ -67,7 +67,9 @@ namespace PowerPointVstoAdd_In
             }
         }
 
-        private void btnAddRectangle_Click(object sender,RibbonControlEventArgs e)
+        private void btnAddRectangle_Click(
+            object sender
+            ,RibbonControlEventArgs e)
         {
             Exercise2RectangleAdder rectangleAdder =
                 new Exercise2RectangleAdder();
@@ -416,10 +418,21 @@ namespace PowerPointVstoAdd_In
 
         #endregion
 
-        private void btnAddRectangle_Click_1(
-         object sender, 
-         RibbonControlEventArgs e)
+        //private void btnAddRectangle_Click_1(
+        // object sender, 
+        // RibbonControlEventArgs e)
+        //{
+        //}
+
+        private void btnEnumerateShapes_Click(
+    object sender,
+    RibbonControlEventArgs e)
         {
+            Exercise3ShapeEnumerator shapeEnumerator =
+                new Exercise3ShapeEnumerator();
+
+            shapeEnumerator.Execute(
+                Globals.ThisAddIn.Application);
         }
     }
 }
