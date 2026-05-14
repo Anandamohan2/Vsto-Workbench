@@ -67,7 +67,17 @@ namespace PowerPointVstoAdd_In
             }
         }
 
+        private void btnAddRectangle_Click(object sender,RibbonControlEventArgs e)
+        {
+            Exercise2RectangleAdder rectangleAdder =
+                new Exercise2RectangleAdder();
+
+            rectangleAdder.Execute(
+                Globals.ThisAddIn.Application);
+        }
+
         #region Presentation Information
+
 
         private void AppendPresentationInformation(
             PowerPoint.Presentation presentation,
@@ -405,5 +415,11 @@ namespace PowerPointVstoAdd_In
         }
 
         #endregion
+
+        private void btnAddRectangle_Click_1(
+         object sender, 
+         RibbonControlEventArgs e)
+        {
+        }
     }
 }
