@@ -35,6 +35,7 @@
             this.PresentationInfo = this.Factory.CreateRibbonGroup();
             this.btnReadInfo = this.Factory.CreateRibbonButton();
             this.btnAddRectangle = this.Factory.CreateRibbonButton();
+            this.btnEnumerateShapes = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.PresentationInfo.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             // 
             this.PresentationInfo.Items.Add(this.btnReadInfo);
             this.PresentationInfo.Items.Add(this.btnAddRectangle);
+            this.PresentationInfo.Items.Add(this.btnEnumerateShapes);
             this.PresentationInfo.Label = "Presentation Info";
             this.PresentationInfo.Name = "PresentationInfo";
             // 
@@ -64,6 +66,12 @@
             this.btnAddRectangle.Label = "Add Rectangle";
             this.btnAddRectangle.Name = "btnAddRectangle";
             this.btnAddRectangle.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddRectangle_Click);
+            // 
+            // btnEnumerateShapes
+            // 
+            this.btnEnumerateShapes.Label = "Enumerate Shapes";
+            this.btnEnumerateShapes.Name = "btnEnumerateShapes";
+            this.btnEnumerateShapes.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnEnumerateShapes_Click);
             // 
             // PresentationInfoRibbon
             // 
@@ -86,7 +94,10 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup PresentationInfo;
 
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnReadInfo;
+
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddRectangle;
+
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnEnumerateShapes;
     }
 
     partial class ThisRibbonCollection
