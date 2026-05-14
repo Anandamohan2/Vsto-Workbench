@@ -1,129 +1,409 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Tools.Ribbon;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+using Office = Microsoft.Office.Core;
 
 namespace PowerPointVstoAdd_In
 {
     public partial class PresentationInfoRibbon
     {
-        private void PresentationInfoRibbon_Load(object sender, RibbonUIEventArgs e)
+        private void PresentationInfoRibbon_Load(
+            object sender,
+            RibbonUIEventArgs e)
         {
-
+            LogInfo("Ribbon loaded.");
         }
 
-        private void btnReadInfo_Click(object sender, RibbonControlEventArgs e)
+        private void btnReadInfo_Click(
+            object sender,
+            RibbonControlEventArgs e)
         {
+            LogInfo(
+                "START : Reading presentation information.");
+
             try
             {
-                // Get PowerPoint Application
-                PowerPoint.Application app = Globals.ThisAddIn.Application;
+                PowerPoint.Application application =
+                    Globals.ThisAddIn.Application;
 
-                // Validate active presentation
-                if (app.Presentations.Count == 0)
+                if (!ValidatePresentation(application))
                 {
-                    MessageBox.Show(
-                        "No active presentation found.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                PowerPoint.Presentation presentation =
+                    application.ActivePresentation;
+
+                StringBuilder builder =
+                    new StringBuilder();
+
+                AppendPresentationInformation(
+                    presentation,
+                    builder);
+
+                AppendActiveSlideInformation(
+                    application,
+                    builder);
+
+                AppendSelectionInformation(
+                    application,
+                    builder);
+
+                ShowInformation(builder.ToString());
+
+                LogInfo(
+                    "END : Reading presentation information.");
+            }
+            catch (Exception exception)
+            {
+                LogError(
+                    "Unhandled exception occurred.",
+                    exception);
+
+                ShowError(exception.Message);
+            }
+        }
+
+        #region Presentation Information
+
+        private void AppendPresentationInformation(
+            PowerPoint.Presentation presentation,
+            StringBuilder builder)
+        {
+            LogInfo(
+                "Reading presentation information.");
+
+            builder.AppendLine(
+                "Presentation Name:");
+
+            builder.AppendLine(
+                presentation.Name);
+
+            builder.AppendLine();
+
+            builder.AppendLine(
+                "Total Slide Count:");
+
+            builder.AppendLine(
+                presentation.Slides.Count.ToString());
+
+            builder.AppendLine();
+        }
+
+        #endregion
+
+        #region Active Slide Information
+
+        private void AppendActiveSlideInformation(
+            PowerPoint.Application application,
+            StringBuilder builder)
+        {
+            LogInfo(
+                "Reading active slide information.");
+
+            try
+            {
+                if (!HasActiveSlide(application))
+                {
+                    builder.AppendLine(
+                        "Active Slide Number:");
+
+                    builder.AppendLine(
+                        "No active slide.");
+
+                    builder.AppendLine();
 
                     return;
                 }
 
-                // Get active presentation
-                PowerPoint.Presentation presentation = app.ActivePresentation;
+                int slideNumber =
+                    application.ActiveWindow
+                               .View
+                               .Slide
+                               .SlideIndex;
 
-                StringBuilder builder = new StringBuilder();
+                builder.AppendLine(
+                    "Active Slide Number:");
 
-                // Presentation Name
-                builder.AppendLine("Presentation Name:");
-                builder.AppendLine(presentation.Name);
+                builder.AppendLine(
+                    slideNumber.ToString());
+
                 builder.AppendLine();
+            }
+            catch (Exception exception)
+            {
+                LogError(
+                    "Failed to read active slide.",
+                    exception);
 
-                // Slide Count
-                builder.AppendLine("Total Slide Count:");
-                builder.AppendLine(presentation.Slides.Count.ToString());
+                builder.AppendLine(
+                    "Failed to read active slide.");
+
                 builder.AppendLine();
+            }
+        }
 
-                // Active Slide Number
-                if (app.ActiveWindow != null &&
-                    app.ActiveWindow.View != null &&
-                    app.ActiveWindow.View.Slide != null)
+        #endregion
+
+        #region Selection Information
+
+        private void AppendSelectionInformation(
+            PowerPoint.Application application,
+            StringBuilder builder)
+        {
+            LogInfo(
+                "Reading selection information.");
+
+            try
+            {
+                if (application.ActiveWindow == null)
                 {
-                    int slideNumber =
-                        app.ActiveWindow.View.Slide.SlideIndex;
+                    builder.AppendLine(
+                        "No active window.");
 
-                    builder.AppendLine("Active Slide Number:");
-                    builder.AppendLine(slideNumber.ToString());
-                }
-                else
-                {
-                    builder.AppendLine("Active Slide Number:");
-                    builder.AppendLine("No active slide.");
+                    return;
                 }
 
-                builder.AppendLine();
-
-                // Selection Information
                 PowerPoint.Selection selection =
-                    app.ActiveWindow.Selection;
+                    application.ActiveWindow.Selection;
 
-                if (selection != null &&
-                    selection.Type ==
+                if (selection == null)
+                {
+                    builder.AppendLine(
+                        "Selection unavailable.");
+
+                    return;
+                }
+
+                if (selection.Type !=
                     PowerPoint.PpSelectionType.ppSelectionShapes)
                 {
-                    PowerPoint.ShapeRange shapeRange =
-                        selection.ShapeRange;
+                    builder.AppendLine(
+                        "Selected Shape Count:");
 
-                    builder.AppendLine("Selected Shape Count:");
-                    builder.AppendLine(shapeRange.Count.ToString());
-
-                    builder.AppendLine();
-
-                    builder.AppendLine("Selected Shape Details:");
-                    builder.AppendLine();
-
-                    for (int i = 1; i <= shapeRange.Count; i++)
-                    {
-                        PowerPoint.Shape shape = shapeRange[i];
-
-                        builder.AppendLine(
-                            "Shape Name : " + shape.Name);
-
-                        builder.AppendLine(
-                            "Shape Type : " + shape.Type);
-
-                        builder.AppendLine(
-                            "--------------------------------");
-                    }
-                }
-                else
-                {
-                    builder.AppendLine("Selected Shape Count:");
                     builder.AppendLine("0");
 
                     builder.AppendLine();
 
-                    builder.AppendLine("No shapes selected.");
+                    builder.AppendLine(
+                        "No shapes selected.");
+
+                    return;
                 }
 
-                // Show Result
-                MessageBox.Show(
-                    builder.ToString(),
-                    "Presentation Information",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                PowerPoint.ShapeRange shapeRange =
+                    selection.ShapeRange;
+
+                builder.AppendLine(
+                    "Selected Shape Count:");
+
+                builder.AppendLine(
+                    shapeRange.Count.ToString());
+
+                builder.AppendLine();
+
+                builder.AppendLine(
+                    "Selected Shape Details:");
+
+                builder.AppendLine();
+
+                AppendShapeInformation(
+                    shapeRange,
+                    builder);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageBox.Show(
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                LogError(
+                    "Failed to read selection information.",
+                    exception);
+
+                builder.AppendLine(
+                    "Selection read failed.");
             }
         }
+
+        private void AppendShapeInformation(
+            PowerPoint.ShapeRange shapeRange,
+            StringBuilder builder)
+        {
+            for (int index = 1;
+                 index <= shapeRange.Count;
+                 index++)
+            {
+                try
+                {
+                    PowerPoint.Shape shape =
+                        shapeRange[index];
+
+                    if (shape == null)
+                    {
+                        continue;
+                    }
+
+                    builder.AppendLine(
+                        "Shape Name : " +
+                        shape.Name);
+
+                    builder.AppendLine(
+                        "Shape Type : " +
+                        shape.Type);
+
+                    builder.AppendLine(
+                        "Is Group Shape : " +
+                        (shape.Type ==
+                         Office.MsoShapeType.msoGroup));
+
+                    builder.AppendLine(
+                        "Has Text Frame : " +
+                        (shape.HasTextFrame ==
+                         Office.MsoTriState.msoTrue));
+
+                    builder.AppendLine(
+                        "--------------------------------");
+                }
+                catch (Exception exception)
+                {
+                    LogError(
+                        "Failed to read shape.",
+                        exception);
+
+                    builder.AppendLine(
+                        "Failed to read one shape.");
+
+                    builder.AppendLine(
+                        "--------------------------------");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Validation
+
+        private bool ValidatePresentation(
+            PowerPoint.Application application)
+        {
+            try
+            {
+                if (application == null)
+                {
+                    ShowWarning(
+                        "PowerPoint application unavailable.");
+
+                    return false;
+                }
+
+                if (application.Presentations.Count == 0)
+                {
+                    ShowWarning(
+                        "No active presentation found.");
+
+                    return false;
+                }
+
+                if (application.ActivePresentation == null)
+                {
+                    ShowWarning(
+                        "Active presentation unavailable.");
+
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                LogError(
+                    "Presentation validation failed.",
+                    exception);
+
+                ShowError(
+                    "Presentation validation failed.");
+
+                return false;
+            }
+        }
+
+        private bool HasActiveSlide(
+            PowerPoint.Application application)
+        {
+            try
+            {
+                return application.ActiveWindow != null &&
+                       application.ActiveWindow.View != null &&
+                       application.ActiveWindow.View.Slide != null;
+            }
+            catch (Exception exception)
+            {
+                LogError(
+                    "Failed to validate active slide.",
+                    exception);
+
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region Logging
+
+        private void LogInfo(string message)
+        {
+            Debug.WriteLine(
+                "[INFO] " + message);
+        }
+
+        private void LogError(
+            string message,
+            Exception exception)
+        {
+            Debug.WriteLine(
+                "[ERROR] " + message);
+
+            Debug.WriteLine(
+                exception.Message);
+
+            Debug.WriteLine(
+                exception.StackTrace);
+        }
+
+        #endregion
+
+        #region Message Helpers
+
+        private void ShowInformation(
+            string message)
+        {
+            MessageBox.Show(
+                message,
+                "Presentation Information",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void ShowWarning(
+            string message)
+        {
+            MessageBox.Show(
+                message,
+                "Validation",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+        }
+
+        private void ShowError(
+            string message)
+        {
+            MessageBox.Show(
+                message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+
+        #endregion
     }
 }
