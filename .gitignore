@@ -63,3 +63,7 @@ obj/
 *.user
 *.suo
 *.cache
+*.dll
+*.pdb
+*.manifest
+*.vsto
