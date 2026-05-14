@@ -1,0 +1,97 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|c:\\users\\lenovo\\source\\repos\\powerpointvstoadd-in\\powerpointvstoadd-in\\presentationinforibbon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|solutionrelative:powerpointvstoadd-in\\presentationinforibbon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\powerpointvstoadd-in\\thisaddin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|solutionrelative:powerpointvstoadd-in\\thisaddin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\powerpointvstoadd-in\\presentationinforibbon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|solutionrelative:powerpointvstoadd-in\\presentationinforibbon.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\powerpointvstoadd-in\\presentationinforibbon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{573D7D67-B912-4127-83A3-0BB4CFE13D02}|PowerPointVstoAdd-In\\PowerPointVstoAdd-In.csproj|solutionrelative:powerpointvstoadd-in\\presentationinforibbon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PresentationInfoRibbon.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\PresentationInfoRibbon.Designer.cs",
+              "RelativeDocumentMoniker": "PowerPointVstoAdd-In\\PresentationInfoRibbon.Designer.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\PresentationInfoRibbon.Designer.cs",
+              "RelativeToolTip": "PowerPointVstoAdd-In\\PresentationInfoRibbon.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T12:41:54.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PresentationInfoRibbon.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\PresentationInfoRibbon.cs",
+              "RelativeDocumentMoniker": "PowerPointVstoAdd-In\\PresentationInfoRibbon.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\PresentationInfoRibbon.cs",
+              "RelativeToolTip": "PowerPointVstoAdd-In\\PresentationInfoRibbon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T12:41:31.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PresentationInfoRibbon.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\PresentationInfoRibbon.cs",
+              "RelativeDocumentMoniker": "PowerPointVstoAdd-In\\PresentationInfoRibbon.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\PresentationInfoRibbon.cs [Design]",
+              "RelativeToolTip": "PowerPointVstoAdd-In\\PresentationInfoRibbon.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T12:28:43.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ThisAddIn.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\ThisAddIn.cs",
+              "RelativeDocumentMoniker": "PowerPointVstoAdd-In\\ThisAddIn.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\PowerPointVstoAdd-In\\PowerPointVstoAdd-In\\ThisAddIn.cs",
+              "RelativeToolTip": "PowerPointVstoAdd-In\\ThisAddIn.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAuwA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T12:27:22.868Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
