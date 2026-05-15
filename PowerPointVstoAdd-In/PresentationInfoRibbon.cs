@@ -10,6 +10,11 @@ namespace PowerPointVstoAdd_In
 {
     public partial class PresentationInfoRibbon
     {
+        private readonly Exercise5TaskPaneManager
+      taskPaneManager =
+        new Exercise5TaskPaneManager();
+
+
         private void PresentationInfoRibbon_Load(
             object sender,
             RibbonUIEventArgs e)
@@ -436,14 +441,21 @@ namespace PowerPointVstoAdd_In
         }
 
         private void btnGroupTraversal_Click(
-    object sender,
-    RibbonControlEventArgs e)
+        object sender,
+        RibbonControlEventArgs e)
         {
             Exercise4GroupShapeTraversal traversal =
                 new Exercise4GroupShapeTraversal();
 
             traversal.Execute(
                 Globals.ThisAddIn.Application);
+        }
+
+        private void btnTaskPane_Click(
+    object sender,
+    RibbonControlEventArgs e)
+        {
+            taskPaneManager.ShowTaskPane();
         }
     }
 }

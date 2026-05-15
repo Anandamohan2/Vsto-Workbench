@@ -37,6 +37,7 @@
             this.btnAddRectangle = this.Factory.CreateRibbonButton();
             this.btnEnumerateShapes = this.Factory.CreateRibbonButton();
             this.btnGroupTraversal = this.Factory.CreateRibbonButton();
+            this.btnTaskPane =this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.PresentationInfo.SuspendLayout();
             this.SuspendLayout();
@@ -53,8 +54,8 @@
             this.PresentationInfo.Items.Add(this.btnReadInfo);
             this.PresentationInfo.Items.Add(this.btnAddRectangle);
             this.PresentationInfo.Items.Add(this.btnEnumerateShapes);
-            this.PresentationInfo.Items.Add(
-    this.btnGroupTraversal);
+            this.PresentationInfo.Items.Add(this.btnGroupTraversal);
+            this.PresentationInfo.Items.Add(this.btnTaskPane);
             this.PresentationInfo.Label = "Presentation Info";
             this.PresentationInfo.Name = "PresentationInfo";
             // 
@@ -76,6 +77,24 @@
             this.btnEnumerateShapes.Name = "btnEnumerateShapes";
             this.btnEnumerateShapes.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnEnumerateShapes_Click);
             // 
+            // btnGroupTraversal
+            // 
+            this.btnGroupTraversal.Label = "Group Traversal";
+            this.btnGroupTraversal.Name = "btnGroupTraversal";
+            this.btnGroupTraversal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnGroupTraversal_Click);
+
+            // btnTaskPane
+            this.btnTaskPane.Label =
+                "Open Task Pane";
+
+            this.btnTaskPane.Name =
+                "btnTaskPane";
+
+            this.btnTaskPane.Click +=
+                new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(
+                    this.btnTaskPane_Click);
+
+            // 
             // PresentationInfoRibbon
             // 
             this.Name = "PresentationInfoRibbon";
@@ -88,18 +107,6 @@
             this.PresentationInfo.PerformLayout();
             this.ResumeLayout(false);
 
-            // 
-            // btnGroupTraversal
-            // 
-            this.btnGroupTraversal.Label =
-                "Group Traversal";
-
-            this.btnGroupTraversal.Name =
-                "btnGroupTraversal";
-
-            this.btnGroupTraversal.Click +=
-                new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(
-                    this.btnGroupTraversal_Click);
         }
 
         #endregion
@@ -115,6 +122,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnEnumerateShapes;
 
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnGroupTraversal;
+
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnTaskPane;
     }
 
     partial class ThisRibbonCollection
