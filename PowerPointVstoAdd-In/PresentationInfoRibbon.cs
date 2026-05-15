@@ -425,13 +425,24 @@ namespace PowerPointVstoAdd_In
         //}
 
         private void btnEnumerateShapes_Click(
-    object sender,
-    RibbonControlEventArgs e)
+       object sender,
+       RibbonControlEventArgs e)
         {
             Exercise3ShapeEnumerator shapeEnumerator =
                 new Exercise3ShapeEnumerator();
 
             shapeEnumerator.Execute(
+                Globals.ThisAddIn.Application);
+        }
+
+        private void btnGroupTraversal_Click(
+    object sender,
+    RibbonControlEventArgs e)
+        {
+            Exercise4GroupShapeTraversal traversal =
+                new Exercise4GroupShapeTraversal();
+
+            traversal.Execute(
                 Globals.ThisAddIn.Application);
         }
     }
