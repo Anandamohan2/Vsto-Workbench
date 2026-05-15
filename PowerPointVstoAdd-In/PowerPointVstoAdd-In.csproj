@@ -182,6 +182,12 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="BasicTaskPaneControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BasicTaskPaneControl.Designer.cs">
+      <DependentUpon>BasicTaskPaneControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationInfoRibbon.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="BasicTaskPaneControl.resx">
+      <DependentUpon>BasicTaskPaneControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationInfoRibbon.resx">
       <DependentUpon>PresentationInfoRibbon.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +224,7 @@
     <Compile Include="RectangleAdder.cs" />
     <Compile Include="Exercise3ShapeEnumerator.cs" />
     <Compile Include="ShapeTraversal\Exercise4GroupShapeTraversal.cs.cs" />
+    <Compile Include="Taskpane\Exercise5TaskPaneManager.cs" />
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>
