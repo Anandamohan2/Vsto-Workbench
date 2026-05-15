@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="RectangleAdder.cs" />
     <Compile Include="Exercise3ShapeEnumerator.cs" />
+    <Compile Include="ShapeTraversal\Exercise4GroupShapeTraversal.cs.cs" />
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>

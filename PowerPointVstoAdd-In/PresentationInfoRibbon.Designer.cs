@@ -36,6 +36,7 @@
             this.btnReadInfo = this.Factory.CreateRibbonButton();
             this.btnAddRectangle = this.Factory.CreateRibbonButton();
             this.btnEnumerateShapes = this.Factory.CreateRibbonButton();
+            this.btnGroupTraversal = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.PresentationInfo.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,8 @@
             this.PresentationInfo.Items.Add(this.btnReadInfo);
             this.PresentationInfo.Items.Add(this.btnAddRectangle);
             this.PresentationInfo.Items.Add(this.btnEnumerateShapes);
+            this.PresentationInfo.Items.Add(
+    this.btnGroupTraversal);
             this.PresentationInfo.Label = "Presentation Info";
             this.PresentationInfo.Name = "PresentationInfo";
             // 
@@ -85,6 +88,18 @@
             this.PresentationInfo.PerformLayout();
             this.ResumeLayout(false);
 
+            // 
+            // btnGroupTraversal
+            // 
+            this.btnGroupTraversal.Label =
+                "Group Traversal";
+
+            this.btnGroupTraversal.Name =
+                "btnGroupTraversal";
+
+            this.btnGroupTraversal.Click +=
+                new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(
+                    this.btnGroupTraversal_Click);
         }
 
         #endregion
@@ -98,6 +113,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddRectangle;
 
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnEnumerateShapes;
+
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnGroupTraversal;
     }
 
     partial class ThisRibbonCollection
